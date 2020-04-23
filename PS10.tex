@@ -11,6 +11,7 @@
 \usepackage{tabularx}
 \usepackage{listings}
 \usepackage{courier}
+\usepackage{pgfplots}
 \pagestyle{fancy}
 \fancyhf{}
 \setlength{\headheight}{40pt}
@@ -110,20 +111,38 @@
 
 %%PROBLEM 4%%
 \begin{problem}{Consider  an  ensemble  learning  algorithm  that  uses  simple  majority  voting  among K learned  hypotheses.
-   Suppose that each hypothesis  has error $\epsilon$ and that the errors madeby each hypothesis are independent  of the others’.  
-   Calculate a formula for the error of theensemble algorithm in terms of K and $\epsilon$, and evaluate it for the cases where K=5, 10, and 
-   20 and $\epsilon$=0.1, 0.2, and 0.4. If the independence assumption is removed, is it possible for the ensemble error to be
-   worse than $\epsilon$?}
-    Answer words
+   Suppose that each hypothesis  has error $\epsilon$ and that the errors made by each hypothesis are independent  of the others’.  
+   Calculate a formula for the error of the ensemble algorithm in terms of K and $\epsilon$, and evaluate it for the cases where K=5 and 
+   $\epsilon=0.1$.}
+    \[Error = \sum_{i=\frac{K+1}{2}}^K \frac{K}{i}\epsilon^i(1-\epsilon)^{K-i}\]
+    Therefore the Error comes out to 0.00857
 \end{problem}
+
+\newpage
 
 %%PROBLEM 5%%
 \begin{problem}{Find and sketch the following, and Report the actual polynomials found, simplifying to a single number each of their coefficients.}
     \begin{subproblem}{1st-order (linear) Lagrange interpolating polynomial through (1,2) and (3,5)}
-        Answer words
+        \[L(x) = 2*\frac{2(x-3)}{1-2} + 5*\frac{x-1}{3-1} \rightarrow L(x) = \frac{1}{2}x + \frac{7}{2}\]
+        \begin{tikzpicture}
+            \begin{axis}[ 
+                xlabel=$x$,
+                ylabel={$L(x) = \frac{1}{2}x + \frac{7}{2}$}
+            ] 
+                \addplot {0.5*x + 3.5}; 
+            \end{axis}
+        \end{tikzpicture}
     \end{subproblem}
     \begin{subproblem}{2nd-order (quadratic) Lagrange interpolating polynomial through (-1,0.1), (0,0), (1,0.1)}
-        Answer words
+        \[L(x) = 0.1*\frac{x(x-1)}{(-1)(-1-1)} + 0 + .1*\frac{x(x-(-1))}{1(1-(-1))} \rightarrow L(x) = 0.05(x^2-x) + 0.05(x^2+x)\]
+        \begin{tikzpicture}
+            \begin{axis}[ 
+                xlabel=$x$,
+                ylabel={$L(x) = 0.05(x^2-x) + 0.05(x^2+x)$}
+            ] 
+                \addplot {0.05(x^2-x) + 0.05(x^2+x)}; 
+            \end{axis}
+        \end{tikzpicture}
     \end{subproblem}
     \begin{subproblem}{1st-order (linear) least squares fit for points (-1,0.1), (0,0), (1,0.1)}
         Answer words
