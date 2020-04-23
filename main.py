@@ -19,6 +19,8 @@ attributes = {
     17 : "export-administration-act-south-africa: 2 (y,n)"
 }
 
+N=232
+
 table=[
     [0,0,1,1,0,1,1,0,0,0,0,0,0,1,1,1,1],
     [1,0,1,0,1,1,1,0,0,0,0,0,1,1,1,0,1],
@@ -255,19 +257,7 @@ table=[
 ]
 
 def remainder(value):
-    p_k = 0
-    n_k = 0
-    res = 0
-    total = len(table)
-    for i in range(len(table)):
-        if table[i][value] == 1:
-            p_k += 1
-        else:
-            n_k += 1
-    for i in range(2):
-        res += (p_k + n_k)/(total)*B(p_k/total)
-
-    return res
+    return (pos[value]/N)*B(pos[value]/N) + (neg[value]/N)*B(neg[value]/N)
     
 def B(q):  
   if q==0 or q==1:
